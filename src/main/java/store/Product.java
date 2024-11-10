@@ -1,21 +1,25 @@
 package store;
 
 public class Product {
-    private int eventQuantity;
-    private int quantity;
-    private int price;
-    private String name;
+    public int eventQuantity;
+    public int quantity;
+    public int price;
+    public String name;
+
+    public Promotion promotion;
 
     public Product(String name, int quantity, int price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.promotion = Promotion.NULL;
     }
 
     public Product(String name, int eventQuantity, int price, String event) {
         this.name = name;
         this.price = price;
         this.eventQuantity = eventQuantity;
+        this.promotion = Promotion.findByName(event);
     }
 
     public int getQuantity() {
