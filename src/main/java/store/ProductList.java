@@ -54,6 +54,7 @@ public class ProductList {
         if (Objects.equals(promotion, "null"))
             product.addQuantity(quantity);
         if (!Objects.equals(promotion, "null")) {
+            product.promotion = Promotion.findByName(promotion);
             product.addEventQuantity(quantity);
             this.products.put(name, product);
         }
